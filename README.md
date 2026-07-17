@@ -516,7 +516,3 @@ Backend & Full Stack Developer
 This project was developed as a practical implementation of Retrieval-Augmented Generation, combining backend software engineering practices with AI-powered document retrieval and question answering.
 
 ---
-
-## 📄 License
-
-This project is intended for educational and portfolio purposes.
