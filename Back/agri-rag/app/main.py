@@ -38,6 +38,7 @@ app.include_router(chat_router)
 
 @app.get("/")
 def home():
+    print(app.routes)
     return {
         "message": "AgriRAG API is running."
     }
