@@ -1,75 +1,61 @@
-# React + TypeScript + Vite
+# 🌱 AgriRAG Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> A modern React and TypeScript frontend for **AgriRAG**, an AI-powered agricultural knowledge assistant built around Retrieval-Augmented Generation (RAG).
 
-Currently, two official plugins are available:
+The application provides a clean AI SaaS-style interface for uploading agricultural documents, managing indexed files, and asking questions based on the uploaded knowledge base.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📌 Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+AgriRAG Frontend is the client application for the AgriRAG AI system.
 
-## Expanding the ESLint configuration
+It communicates with an existing FastAPI backend through REST APIs and provides a responsive interface for:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 📄 Uploading agricultural PDF documents
+- 📚 Managing uploaded documents
+- 🤖 Asking questions through an AI assistant
+- 🔎 Viewing retrieved document sources
+- 📍 Identifying the source document and page
+- ⏳ Tracking loading and upload states
+- ⚠️ Handling validation and API errors
+- 📱 Providing a responsive user experience
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+The frontend is intentionally designed to be:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Simple
+- Maintainable
+- Type-safe
+- Component-driven
+- Easy to explain
+- Interview-ready
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
 
-```
+# Features
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📄 Document Upload
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Users can upload agricultural PDF documents through:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Drag & Drop
+- File browser
+- Upload progress
+- File validation
+- Success feedback
+- Error feedback
 
+Example:
+
+```text
+┌─────────────────────────────────────────────┐
+│                                             │
+│              ☁ Upload Document             │
+│                                             │
+│       Drag & Drop your PDF here             │
+│              or browse                      │
+│                                             │
+│              [ Choose File ]                │
+│                                             │
+└─────────────────────────────────────────────┘
 ```
