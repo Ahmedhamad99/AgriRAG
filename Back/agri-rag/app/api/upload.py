@@ -9,7 +9,7 @@ from app.core.config import settings
 
 from app.core.dependencies import get_vector_store
 from app.rag.vector_store import VectorStore
-
+from app.schemas.document import DocumentResponse
 router = APIRouter(
     prefix="/documents",
     tags=["Documents"],
@@ -86,12 +86,12 @@ def delete_document(
 
     try:
 
-        # Delete chunks from ChromaDB
+       
         vector_store.delete_document(
             source=filename
         )
 
-        # Delete PDF from disk
+        
         file_path.unlink()
 
         return {
@@ -105,3 +105,22 @@ def delete_document(
             status_code=500,
             detail=f"Failed to delete document: {str(exc)}",
         )
+
+
+
+@router.get(
+    "",
+    response_model=list[DocumentResponse],
+)
+def list_documents():
+
+    return [
+        DocumentResponse(
+            filename=file.name
+        )
+        for file in sorted(
+            UPLOAD_DIR.glob("*.pdf"),
+            key=lambda x: x.name.lower(),
+        )
+        if file.is_file()
+    ]

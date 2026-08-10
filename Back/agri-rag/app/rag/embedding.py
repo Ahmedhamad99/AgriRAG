@@ -16,6 +16,7 @@ class EmbeddingService:
         self.model = SentenceTransformer(
             self.model_name
         )
+        print(settings.embedding_model)
 
     def embed_documents(
         self,

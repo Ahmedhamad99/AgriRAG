@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     llm_model: str = "llama3.2"
 
     embedding_model: str = (
-        "sentence-transformers/all-MiniLM-L6-v2"
+        "intfloat/multilingual-e5-large"
     )
 
     chroma_path: str = "data/chroma"
